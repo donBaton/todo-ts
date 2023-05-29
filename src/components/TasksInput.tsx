@@ -1,5 +1,7 @@
 import React, {ChangeEvent} from "react";
 import {useDispatch} from "react-redux";
+import {v4 as uuidv4} from "uuid";
+
 import {addTask} from "../redux/actions";
 
 export const TasksInput = () => {
@@ -9,7 +11,7 @@ export const TasksInput = () => {
     const dispatch = useDispatch()
     const onAddTaskClick = () => {
         dispatch(addTask({
-            id: "23",
+            id: uuidv4(),
             title: title,
             date: new Date(),
             isCompleted: false
