@@ -1,6 +1,8 @@
-export type Action = { type: "ADD_TASK", payload: string }
+import {Task} from "./taskReducer";
 
-const addTask = (task: string): Action => ({
+export type Action = { type: "ADD_TASK", payload: Task }
+
+export const addTask = (task: Task): Action => ({
     type: "ADD_TASK",
     payload: task
 })

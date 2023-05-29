@@ -1,29 +1,29 @@
 import React, {ChangeEvent} from "react";
 import {useDispatch} from "react-redux";
-
+import {addTask} from "../redux/actions";
 
 export const TasksInput = () => {
 
+    const [title, setTask] = React.useState("");
+
     const dispatch = useDispatch()
-
-    const addTask = (task: string) => {
-        dispatch({type: "ADD_TASK", payload: task})
+    const onAddTaskClick = () => {
+        dispatch(addTask({
+            id: "23",
+            title: title,
+            date: new Date(),
+            isCompleted: false
+        }))
+        setTask("")
     }
-
-    const [task, setTask] = React.useState("");
 
     const updateTask = (event:ChangeEvent<HTMLInputElement>) => {
         setTask(event.target.value);
     }
 
-    const onAddTaskClick = () => {
-        addTask(task);
-        setTask("")
-    }
-
     return (
     <div>
-        <input onChange={updateTask} value={task} name="Task" placeholder="Add new task"/>
+        <input onChange={updateTask} value={title} name="Task" placeholder="Add new task"/>
         <button onClick={onAddTaskClick}>Add new task</button>
     </div>
 )
