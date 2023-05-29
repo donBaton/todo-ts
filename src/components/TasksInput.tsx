@@ -6,7 +6,7 @@ import {addTask} from "../redux/actions";
 
 export const TasksInput = () => {
 
-    const [title, setTask] = React.useState("");
+    const [title, setTitle] = React.useState("");
 
     const dispatch = useDispatch()
     const onAddTaskClick = () => {
@@ -16,11 +16,11 @@ export const TasksInput = () => {
             date: new Date(),
             isCompleted: false
         }))
-        setTask("")
+        setTitle("")
     }
 
-    const updateTask = (event:ChangeEvent<HTMLInputElement>) => {
-        setTask(event.target.value);
+    const updateTitle = (event:ChangeEvent<HTMLInputElement>) => {
+        setTitle(event.target.value);
     }
 
     const handleKeyDown = (event: { key: string; }) => {
@@ -39,7 +39,7 @@ export const TasksInput = () => {
                 className="form-control"
                 type="text"
                 value={title}
-                onChange={updateTask}
+                onChange={updateTitle}
                 onKeyDown={handleKeyDown}
                 name="Task"
                 placeholder="Add new task"/>

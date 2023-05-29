@@ -1,16 +1,20 @@
 import React from "react";
 import {useSelector} from "react-redux";
-import {TaskState} from "../redux/taskReducer";
+import {Task, TaskState} from "../redux/taskReducer";
+import {TaskItem} from "./item/TaskItem";
 
 export const TasksList = () => {
     const tasks =  useSelector<TaskState, TaskState["tasks"]>((state) => state.tasks)
+    const getSortToDos = () => {
+        return tasks?.map((task: Task) => (
+            <TaskItem task={task} key={task.id}/>
+        ))
+    }
     return (
         <div className="row">
-            <ul>
-                {tasks.map((task) => {
-                    return <li key={task.id}>{task.title}</li>
-                })}
-            </ul>
+            <div>
+                {getSortToDos()}
+            </div>
         </div>
     )
 }
