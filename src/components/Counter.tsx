@@ -5,8 +5,8 @@ import {TaskState} from "../redux/taskReducer";
 export const Counter = () => {
     const tasks = useSelector<TaskState, TaskState["tasks"]>((state) => state.tasks)
     return (
-        <div>
-            <h2>{tasks.length}</h2>
+        <div className="row">
+            <div className="text-end">{tasks.length} task{tasks.length===1?'':"s"} in total</div>
         </div>
     )
 }

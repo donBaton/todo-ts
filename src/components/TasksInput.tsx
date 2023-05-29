@@ -21,10 +21,30 @@ export const TasksInput = () => {
         setTask(event.target.value);
     }
 
+    const handleKeyDown = (event: { key: string; }) => {
+        if (event.key === 'Enter') {
+            onAddTaskClick()
+        }
+    }
+
     return (
-    <div>
-        <input onChange={updateTask} value={title} name="Task" placeholder="Add new task"/>
-        <button onClick={onAddTaskClick}>Add new task</button>
+    <div className="contriner">
+        <div className="row">
+            <h3>Add new task:</h3>
+        </div>
+        <div className="row">
+            <input
+                className="form-control"
+                type="text"
+                value={title}
+                onChange={updateTask}
+                onKeyDown={handleKeyDown}
+                name="Task"
+                placeholder="Add new task"/>
+        </div>
+        <div className="row py-3">
+            <button className="btn btn-primary" onClick={onAddTaskClick}>Add new task</button>
+        </div>
     </div>
 )
 }

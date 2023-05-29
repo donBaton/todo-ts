@@ -5,7 +5,7 @@ import {TaskState} from "../redux/taskReducer";
 export const TasksList = () => {
     const tasks =  useSelector<TaskState, TaskState["tasks"]>((state) => state.tasks)
     return (
-        <div>
+        <div className="row">
             <ul>
                 {tasks.map((task) => {
                     return <li key={task.id}>{task.title}</li>
