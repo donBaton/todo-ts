@@ -3,6 +3,7 @@ import {TasksInput} from "./components/TasksInput";
 import {TasksList} from "./components/TasksList";
 import {Counter} from "./components/Counter";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {ControlBar} from "./components/ControlBar";
 function App() {
 
     return (
@@ -10,6 +11,7 @@ function App() {
             <TasksInput/>
             <Counter/>
             <TasksList/>
+            <ControlBar/>
         </div>
     );
 }
